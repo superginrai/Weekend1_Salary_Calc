@@ -10,7 +10,7 @@ class Spaceball {
     }
 }
 const skroob = { firstName: 'President', lastName: 'Skroob', id: 12345, title: 'President', salary: 99999999};
-const helmut = { firstName: 'Dark', lastName: 'Helmut', id: 12346, title: "Father's Brother's Sister's Cousin's Best Friend's Former Room Mate", salary: 50000};
+const helmut = { firstName: 'Dark', lastName: 'Helmut', id: 12346, title: "Father's-Brother's-Sister's-Cousin's-Best Friend's-Former Room Mate", salary: 50000};
 const sandurz = { firstName: 'Colonel', lastName: 'Sandurz', id: 12347, title: 'Chicken', salary: 45000};
 const vespa = { firstName: 'Princess', lastName: 'Vespa', id: 5, title: 'Daughter of Roland, King of the Druids', salary: 10000000 };
 const loneStarr = { firstName: 'Lone', lastName: 'Starr', id: 007, title: 'Hero', salary: 0 };
@@ -27,8 +27,37 @@ function onReady() {
     console.log('jQuery is go for launch');
     $('#submitButton').on('click', clickHandler);
     $('#submitButton').on('click', clearField);
+
+
+makeSpaceball (spaceballs);
+
+function makeSpaceball () {
+    for (let i = 0; i < spaceballs.length; i++){
+       const spaceball = spaceballs[i];
+       const madeSpaceball = new Spaceball(spaceball.firstName,
+            spaceball.lastName,
+            spaceball.id,
+            spaceball.title,
+            spaceball.salary);
+
+        $('#employeeInfo').append(
+            '<tr>' +
+            '<td>'+ madeSpaceball.firstName + '</td>' +
+            '<td>' + madeSpaceball.lastName + '</td>' +
+            '<td>' + madeSpaceball.id + '</td>' +
+            '<td>' + madeSpaceball.title + '</td>' +
+            '<td>' + madeSpaceball.salary + '</td>' +
+            '<td>' + '<button class="deleteButton">DELETE</button>' + '</td>' +
+            '</tr>'
+        )
+
+        $('.deleteButton').on('click', deleteHandler);
+        console.log ('Spaceball made');
+        console.log(madeSpaceball)
+    }
 }
 
+}
 function clickHandler(){
     console.log('submit button was clicked!!');
 
@@ -75,5 +104,4 @@ function updateMonthly() {
     totalSalary = cashMoney;
     console.log(totalSalary);
     }
-
 }

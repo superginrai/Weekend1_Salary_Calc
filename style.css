@@ -19,13 +19,17 @@ h2{
     padding-right: 100px;
 }
 
-td{
+th{
+    color: lightskyblue;
     text-align: center;
+    padding: 35px;
+    border: 2px double lightskyblue;
 }
 
-td, th {
+td {
     padding: 35px;
-    border: 2px double slategray;
+    border: 2px double lightskyblue;
+    text-align: center;
 }
 
 table {
