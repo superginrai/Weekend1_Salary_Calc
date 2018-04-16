@@ -51,9 +51,11 @@ function makeSpaceball () {
             '</tr>'
         )
 
+       // salary = madeSpaceball.salary;
         $('.deleteButton').on('click', deleteHandler);
         console.log ('Spaceball made');
         console.log(madeSpaceball)
+       // updateMonthly();
     }
 }
 
@@ -105,3 +107,5 @@ function updateMonthly() {
     console.log(totalSalary);
     }
 }
+
+
