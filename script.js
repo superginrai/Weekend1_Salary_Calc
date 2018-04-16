@@ -27,7 +27,7 @@ function onReady() {
     console.log('jQuery is go for launch');
     $('#submitButton').on('click', clickHandler);
     $('#submitButton').on('click', clearField);
-
+    $('#employeeInfo').on('click', '.deleteButton', deleteHandler);
 
 makeSpaceball (spaceballs);
 
@@ -72,7 +72,7 @@ function deleteHandler(){
 }
 
 function clearField(){
-    $('#firstNameIn, #lastNameIn, #idIn, #titleIn, #salaryIn').val('');
+    $('input').val('');
     }
 
 function addEmployee() {
@@ -91,21 +91,20 @@ function addEmployee() {
         '<td>' + '<button class="deleteButton">DELETE</button>' + '</td>' +
         '</tr>'
     )
-    $('.deleteButton').on('click', deleteHandler);
     updateMonthly();    
 
 
 function updateMonthly() {
     let monthlySalary = (salary/12);
     let cashMoney = (monthlySalary + totalSalary);
-    $('#cashMoneyOutput').text('Total Monthly:$' + cashMoney.toFixed(2));
+    $('#cashMoneyOutput').text('Total Monthly Spacebucks:$' + cashMoney.toFixed(2));
     console.log(cashMoney);
     if (cashMoney > 20000){
-        document.getElementById('cashMoneyOutput').style.backgroundColor = 'red';
+        $('#cashMoneyOutput').css('background-color', 'red');
     }
     totalSalary = cashMoney;
     console.log(totalSalary);
-    }
 }
 
 
+}
